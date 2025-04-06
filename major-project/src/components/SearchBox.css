@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Nunito:wght@400&display=swap");
+
+/* Background Fade Animation */
+@keyframes backgroundFadeLight {
+    0% { background-color: #f8fbff; } /* Soft Blue */
+    25% { background-color: #e8f4ff; } /* Light Sky Blue */
+    50% { background-color: #d3eaff; } /* Soft Pastel Blue */
+    75% { background-color: #fff0f5; } /* Light Pinkish White */
+    100% { background-color: #f8fbff; } /* Back to Soft Blue */
+  }
+
+/* Smooth Fade-in & Slide */
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Search Container */
+.search-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  animation: backgroundFadeLight 10s infinite alternate ease-in-out;
+  position: relative;
+  padding: 20px;
+}
+
+/* Floating Background Shapes */
+.search-container::before,
+.search-container::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.search-container::before {
+  width: 200px;
+  height: 200px;
+  background: rgba(0, 123, 255, 0.15);
+  top: 10%;
+  left: 5%;
+}
+
+.search-container::after {
+  width: 300px;
+  height: 300px;
+  background: rgba(0, 123, 255, 0.08);
+  bottom: 10%;
+  right: 3%;
+}
+
+/* Glassmorphism Card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 30px;
+  padding: 40px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+
+.glass-card:hover {
+  transform: none;
+}
+
+/* Title */
+.search-container h1 {
+  font-size: 3rem;
+  font-family: "Poppins", sans-serif;
+  color: #007bff;
+  margin-bottom: 20px;
+  animation: slideUpFade 1s ease;
+}
+
+/* Description */
+.search-container p {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 600px;
+  margin: 0 auto 30px;
+  font-family: "Nunito", sans-serif;
+  animation: slideUpFade 1.4s ease;
+}
+
+/* Input Box */
+.search-container input[type="text"] {
+  width: 100%;
+  max-width: 600px;
+  padding: 15px;
+  height: 60px;
+  border-radius: 30px;
+  border: 2px solid #ccc;
+  font-size: 1rem;
+  outline: none;
+  margin-bottom: 20px;
+  box-shadow: 0 0 0 transparent;
+  transition: box-shadow 0.3s ease, border 0.3s ease;
+  font-family: "Nunito", sans-serif;
+}
+
+.search-container input[type="text"]:focus {
+  box-shadow: 0 0 12px rgba(0, 123, 255, 0.3);
+  border-color: #007bff;
+}
+
+/* Search Button */
+.search-container button {
+  padding: 10px 35px;
+  height: 60px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(45deg, #007bff, #00c6ff);
+  color: white;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.4s ease;
+  font-family: "Poppins", sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Button Hover Effect */
+.search-container button::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 0%;
+  background: rgba(255, 255, 255, 0.2);
+  top: 0;
+  left: 0;
+  z-index: 1;
+  transition: width 0.4s ease;
+}
+
+.search-container button:hover::before {
+  width: 100%;
+}
